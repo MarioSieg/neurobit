@@ -95,7 +95,6 @@ void neurobit_quant_float_to_uint2(const float* in, uint8_t* out, size_t len, fl
         uint8_t d = sat_u2(zero_point + (int32_t)roundf(in[i+3]*inv_scale));
         out[i>>2] = (uint8_t)(a | (b<<2) | (c<<4) | (d<<6));
     }
-
     if (len & 3) { /* Handle 1-, 2- or 3-value tail */
         uint8_t p = 0;
         switch (len & 3) {
